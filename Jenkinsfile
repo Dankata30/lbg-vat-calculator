@@ -18,6 +18,9 @@ pipeline {
             environment {
                 scannerHome= tool 'sonarqube'
             }
+            stage('SCM') {
+                checkout scm
+              }
             steps {
                 // Get some code from a GitHub repository
                withSonarQubeEnv('sonar-qube-1'){
