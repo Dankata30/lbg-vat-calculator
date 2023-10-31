@@ -15,6 +15,9 @@ pipeline {
         }
 
         stage('Build') {
+            environment {
+                scannerHome= tool 'sonarqube'
+            }
             steps {
                 // Get some code from a GitHub repository
                withSonarQubeEnv('sonar-qube-1'){
